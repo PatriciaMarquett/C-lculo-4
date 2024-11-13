@@ -1,0 +1,50 @@
+import math  # biblioteca de matemática
+
+#f(x)=x^(3)-9 x^(2)+3
+
+def f(x):  # define a função
+    return x**3 - 9 * x**2 + 3
+
+def bissecao(f, x1, xu, es, imax):
+    iter = 0  # número da interação inicial
+    xr = 0   # ponto inicial
+    while True:
+        xrold = xr  # salva o valor anterior de xr
+        xr = (x1 + xu) / 2  # calcula o ponto médio
+        iter += 1
+
+        # Calculando o erro aproximado
+        if xr != 0:
+            ea = abs((xr - xrold) / xr) * 100  # erro aproximado
+
+        # Verificando o sinal da função nos extremos do intervalo
+        test = f(x1) * f(xr)
+
+        if test < 0:
+            xu = xr
+        elif test > 0:
+            x1 = xr
+        else:
+            ea = 0
+        # Condição de parada
+        if ea < es or iter >= imax:
+            break
+            
+        print("Número de iterações:",iter)
+        print(f"Valor de a: {x1:.6f}, f(a): {f(x1):.6f}")
+        print(f"Valor de b: {xu:.6f}, f(b): {f(xu):.6f}")
+        print(f"Valor de x: {xr:.6f}")
+        print(f"Valor do erro: {ea:.6f}%")
+        print("\n")
+        
+    
+    return xr
+
+x1 = 10
+xu = 8
+es = 0.00005    
+imax = 30
+
+# Chamando a função bissecao
+raiz = bissecao(f, x1, xu, es, imax)
+print("A raiz aproximada é:", raiz)
