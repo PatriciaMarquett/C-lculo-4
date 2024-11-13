@@ -1,5 +1,7 @@
 import math  # biblioteca de matemática
 
+#x-x log(10,x)
+
 def f(x):  # define a função
     return x - (x * math.log(x))
 
@@ -38,8 +40,8 @@ def bissecao(f, x1, xu, es, imax):
     
     return xr
 
-x1 = 10
-xu = 1
+x1 = 12
+xu = 8
 es = 0.00005    
 imax = 30
 
