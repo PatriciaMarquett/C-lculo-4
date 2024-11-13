@@ -4,7 +4,7 @@ import math
 
 def f(x): #defina a funcao
     return x - (x * math.log(10,x)) # Define a função F(x)
-
+#mudar a devirada
 def df(x): #defina a derivada da funcao
     return 3 * x**2 - 18 * x  # Define a derivada F'(x)
 
