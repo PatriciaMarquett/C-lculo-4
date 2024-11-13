@@ -1,0 +1,33 @@
+import math 
+
+
+def f(x): #defina a funcao
+    return x**3 - 9 * x**2 + 3  # Define a função F(x)
+
+def df(x): #defina a derivada da funcao
+    return 3 * x**2 - 18 * x  # Define a derivada F'(x)
+
+def newton_raphson(x0, tol, max_iter): #definicao do x inicial, da tolerancia e do max de iteracoes
+    x1 = x0 #substitui o numero de x apos a iteracao (xk, xk+1, xk+2)
+
+    for i in range(max_iter): #definicao do numero maximo de iteracoes
+        x1 = x0 - f(x0) / df(x0) #calculo do metodo de newton raphson
+
+#Com o x antigo (x0) armazenado e o x novo (x1) obtido, se calcula o erro
+        error = abs((x1 - x0) / x1) #calcula o erro relativo em porcentagem (abs é o módulo)
+        print(f"Iteração {i+1}: x = {x1}, erro = {error*100}%") #imprime o erro relativo em %
+
+        if error < tol: #verificacao do erro relativo
+            print(f"Número de iterações: {i+1}")
+            return x1
+        x0 = x1 #atualiza o x inicial para o proximo calculo
+    print("Número máximo de iterações atingido.")
+    return x1 #retorna a ultima raiz
+
+x0 = 1  #x inicial
+tol = 0.00005  #tolerancia para o erro 
+max_iter = 30  #numero maximo de iterações
+
+raiz = newton_raphson(x0, tol, max_iter) #chamada da função
+print(f"A raiz encontrada é: {raiz}")
+
