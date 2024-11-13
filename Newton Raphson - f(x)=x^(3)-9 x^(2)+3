@@ -1,5 +1,6 @@
 import math 
 
+#f(x)=x^(3)-9 x^(2)+3
 
 def f(x): #defina a funcao
     return x**3 - 9 * x**2 + 3  # Define a função F(x)
@@ -24,7 +25,7 @@ def newton_raphson(x0, tol, max_iter): #definicao do x inicial, da tolerancia e 
     print("Número máximo de iterações atingido.")
     return x1 #retorna a ultima raiz
 
-x0 = 1  #x inicial
+x0 = 8  #x inicial
 tol = 0.00005  #tolerancia para o erro 
 max_iter = 30  #numero maximo de iterações
 
