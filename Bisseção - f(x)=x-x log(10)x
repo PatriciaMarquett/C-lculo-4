@@ -3,7 +3,7 @@ import math  # biblioteca de matemática
 #x-x log(10,x)
 
 def f(x):  # define a função
-    return x - (x * math.log(10,x))
+    return x - (x * math.log10(x))
 
 def bissecao(f, x1, xu, es, imax):
     iter = 0  # número da interação inicial
